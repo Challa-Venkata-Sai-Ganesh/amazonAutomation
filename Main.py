@@ -66,8 +66,9 @@ def run_selenium(search_item, brands_list, brand_data, rating, expected_results)
         card_rating = []
         card_star_count = []
         while count <= expected_results:
-            driver.find_element(By.CSS_SELECTOR,
+            card_title = find_element(By.CSS_SELECTOR,
                                 'h2[class="a-size-mini a-spacing-none a-color-base s-line-clamp-2"]').text
+            driver.find_element()
             count += 1
 
 
