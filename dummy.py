@@ -8,3 +8,5 @@ details= {
 details["vinith"]["fullname"] = "Vinith psycho na kodaka"
 print(details)
 
+print("Added a new line here")
+
