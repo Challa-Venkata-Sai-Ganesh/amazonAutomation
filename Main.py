@@ -1,7 +1,5 @@
 import time
-
 from selenium import webdriver
-
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
@@ -15,8 +13,7 @@ def extract_details(driver, remaining_products_extracted, data_extracted):
                                        'div[class="puisg-col puisg-col-4-of-12 puisg-col-8-of-16 puisg-col-12-of-20 puisg-col-12-of-24 puis-list-col-right"]')
 
     wait = WebDriverWait(driver, 15)
-    wait.until(
-        expected_conditions.visibility_of_any_elements_located((By.CSS_SELECTOR,
+    wait.until(expected_conditions.visibility_of_any_elements_located((By.CSS_SELECTOR,
                                                                 'div[class="puisg-col puisg-col-4-of-12 puisg-col-8-of-16 puisg-col-12-of-20 puisg-col-12-of-24 puis-list-col-right"]')))
 
     print("total cards present in page", len(total_cards))
@@ -36,7 +33,7 @@ def extract_details(driver, remaining_products_extracted, data_extracted):
             remaining_products_extracted -= 1
 
     if remaining_products_extracted > 0:
-        print("Moving to next Tab", remaining_products_extracted)
+        print("Moving to next Tab : ", remaining_products_extracted)
         driver.find_element(By.CSS_SELECTOR,
                             'a[class="s-pagination-item s-pagination-next s-pagination-button s-pagination-separator"]').click()
 
@@ -49,12 +46,6 @@ def extract_details(driver, remaining_products_extracted, data_extracted):
 def verify(actual_result, expected_result):
     assert actual_result == expected_result
 
-
-# def search_item_count(driver):
-#     result_item = []
-#     result_item = driver.find_element(
-#         driver.find_element(By.CLASS_NAME, "a-section a-spacing-small a-spacing-top-small")).text.strip('')
-#     print(result_item)
 
 def run_selenium(search_item, brands_list, brand_data, rating, expected_results):
     chrome_options = webdriver.ChromeOptions()

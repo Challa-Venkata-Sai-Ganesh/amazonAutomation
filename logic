@@ -1,0 +1,5 @@
+1->click the tile of the card:
+2->switch window from parent to child
+3->keep wait to load the child page
+4->extract the data of all fields
+5->close this window and traverse to parent window
